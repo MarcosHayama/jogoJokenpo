@@ -7,14 +7,15 @@ public class JogoJokenpo {
 	public static void main(String[] args) {
 		
 		Scanner leitor = new Scanner(System.in);
-		//n esse system in é um dispositivo de leitura de entrada (teclado)
 		
-		//Variáveis para a randomização do computador
 		int min = 1;
 		int max = 3;
-		// Variável copiada pois não entendi nada
 		int escolhaDoComputador = (int)Math.floor(Math.random()*(max-min+1)+min); 
-				
+		
+		int pedra = 1;
+		int papel = 2;
+		int tesoura = 3;
+		
 		System.out.println("Jokenpo");
 		System.out.println("1 - Pedra");
 		System.out.println("2 - Papel");
@@ -32,7 +33,8 @@ public class JogoJokenpo {
 		}  else if (escolhaDoUsuario == 3) {
 			System.out.println("Você escolheu Tesoura");
 		}  
-		  
+		
+		
 	    if (escolhaDoComputador == 1) {
 	    	System.out.println("\nComputador escolheu Pedra");
 		} else if (escolhaDoComputador == 2) {
@@ -40,13 +42,24 @@ public class JogoJokenpo {
 		}  else if (escolhaDoComputador == 3) {
 			System.out.println("\nComputador escolheu Tesoura");
 		  }
-	   //quebra
+	   
+	    
 	    if (escolhaDoUsuario == escolhaDoComputador) {
 	    	System.out.println("\nVocês empataram essa rodada");
-		} else if (escolhaDoUsuario == 1 && escolhaDoComputador == 3) {
-			System.out.println("\nVocê ganhou essa rodada");
+		} else if (escolhaDoUsuario == pedra && escolhaDoComputador == papel) {
+			System.out.println("\nVocê perdeu essa rodada. Computador ganhou essa. Papel ganha de pedra");
+		} else if (escolhaDoUsuario == pedra && escolhaDoComputador == tesoura ){
+			System.out.println("\nVocê ganhou essa rodada. Pedra ganha de tesoura");
+		} else if (escolhaDoUsuario == tesoura && escolhaDoComputador == papel) {
+			System.out.println("\nVocê ganhou essa rodada. Tesoura ganha de papel");
+		} else if (escolhaDoUsuario == tesoura && escolhaDoComputador == pedra) {
+			System.out.println("\nVocê perdeu essa rodada. Pedra ganha de tesoura.");
+		} else if (escolhaDoUsuario == papel && escolhaDoComputador == pedra) {
+			System.out.println("\nVocê ganhou essa rodada. Papel ganha de pedra");
 		} else {
-			System.out.println("\nComputador ganhou essa rodada");
-			}
+			System.out.println("\nVocê perdeu essa rodada. Computador ganhou essa. Tesoura ganha de papel");
 		}
+		
+	}
+	
 	}
